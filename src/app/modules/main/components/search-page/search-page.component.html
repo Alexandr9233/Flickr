@@ -1,0 +1,20 @@
+<form class="search-form">
+  <mat-form-field class="example-full-width">
+    <input (keyup)="search($event)" matInput placeholder="Search" />
+  </mat-form-field>
+</form>
+<div class="cards-wrap">
+  <div class="card" *ngFor="let image of images; let i = index">
+    <a class="img-link" href="{{ image.url }}_b.jpg" class="link-to-photo">
+      <img
+        class="img-item"
+        src="{{ image.url }}_m.jpg"
+        title="{{ image.title }}"
+      />
+    </a>
+    <p class="title">{{ image.title }}</p>
+    <button class="add-image" (click)="getImage(i, image.id)">
+      Bookmark it
+    </button>
+  </div>
+</div>

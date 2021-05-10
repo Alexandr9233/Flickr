@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <mat-toolbar class="main-tool-wrap">
+      <button class="main-page-btn" routerLink="/">Image finder</button>
+      <a class="icon-user"></a>
+    </mat-toolbar>
+
+    <mat-drawer-container class="main-drawer-wrap">
+      <mat-drawer mode="side" opened>
+        <div class="main-nav-container">
+          <a class="icon-cloud" routerLink="/search"></a>
+          <a class="icon-book" routerLink="/bookmark"></a>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content class="main-content">
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </body>
+</html>
