@@ -16,7 +16,12 @@
       <mat-drawer mode="side" opened>
         <div class="main-nav-container">
           <a class="icon-cloud" routerLink="/search"></a>
-          <a class="icon-book" routerLink="/bookmark"></a>
+          <a
+            matBadge="{{ bookmarks.length }}"
+            [matBadgeHidden]="hidden"
+            class="icon-book"
+            routerLink="/bookmark"
+          ></a>
         </div>
       </mat-drawer>
       <mat-drawer-content class="main-content">

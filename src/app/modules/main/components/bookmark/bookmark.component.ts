@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FlickrService, StorageImages } from 'src/app/services/flickr.service';
+import {
+  FlickrService,
+  Photo,
+  StorageImages,
+} from 'src/app/services/flickr.service';
 
 @Component({
   selector: 'app-bookmark',
@@ -7,9 +11,20 @@ import { FlickrService, StorageImages } from 'src/app/services/flickr.service';
   styleUrls: ['./bookmark.component.scss'],
 })
 export class BookmarkComponent implements OnInit {
-  public imagesStorage: Array<StorageImages> = [];
+  public imageCards: Array<Photo> = [];
 
   constructor(private flickrService: FlickrService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.imageCards = this.flickrService.cardsBook;
+  }
+  public removeCard(id: string) {
+    for (let i = 0; i < this.imageCards.length; i++) {
+      if (this.imageCards[i].id === id) {
+        this.imageCards.splice(i, 1);
+
+        this.flickrService.removeCard(this.imageCards);
+      }
+    }
+  }
 }

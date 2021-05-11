@@ -1,1 +1,7 @@
-<div class="bookmark-wrap">fff</div>
+<div class="bookmark-wrap">
+  <div class="image-container" *ngFor="let card of imageCards">
+    <img class="image-item" src="{{ card.url + '_m.jpg' }}" alt="" />
+    <span class="title">{{ card.title }}</span>
+    <button class="remove" (click)="removeCard(card.id)">Remove</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+@import "../../../../../shared/styles/shared.styles.scss";
+
+.bookmark-wrap {
+    @include cardsWrap;
+}
+
+.image-container {
+    @include card;
+}
+
+.image-item {
+    @include imgSize;
+}
+
+.title {
+    @include cardTitile;
+}

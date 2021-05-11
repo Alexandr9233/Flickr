@@ -1,20 +1,39 @@
-<form class="search-form">
-  <mat-form-field class="example-full-width">
-    <input (keyup)="search($event)" matInput placeholder="Search" />
-  </mat-form-field>
-</form>
-<div class="cards-wrap">
-  <div class="card" *ngFor="let image of images; let i = index">
-    <a class="img-link" href="{{ image.url }}_b.jpg" class="link-to-photo">
-      <img
-        class="img-item"
-        src="{{ image.url }}_m.jpg"
-        title="{{ image.title }}"
-      />
-    </a>
-    <p class="title">{{ image.title }}</p>
-    <button class="add-image" (click)="getImage(i, image.id)">
-      Bookmark it
-    </button>
+<div class="searhc-page-wrap">
+  <mat-paginator
+    class="search-paginator"
+    [length]="images.length"
+    [pageSize]="6"
+    [pageSizeOptions]="[6, 12, 24, 48]"
+    (page)="onChangePage($event)"
+  >
+  </mat-paginator>
+  <form class="search-form">
+    <mat-form-field class="example-full-width">
+      <input (keyup)="search($event)" matInput placeholder="Search" />
+    </mat-form-field>
+  </form>
+  <div class="cards-wrap">
+    <div class="card" *ngFor="let image of pageSlice; let i = index">
+      <a class="img-link" href="{{ image.url }}_b.jpg" class="link-to-photo">
+        <img
+          class="img-item"
+          src="{{ image.url }}_c.jpg"
+          title="{{ image.title }}"
+        />
+      </a>
+      <span class="title">{{ image.title }}</span>
+      <button class="add-image" (click)="getImage(image, i)">
+        Bookmark it
+      </button>
+      <form class="search-form">
+        <mat-form-field
+          *ngIf="inputTag && i === index"
+          class="example-full-width"
+        >
+          <input matInput placeholder="Add tags" />
+        </mat-form-field>
+      </form>
+      <button class="add-tags" (click)="showCloseInput(i)">Add tags</button>
+    </div>
   </div>
 </div>

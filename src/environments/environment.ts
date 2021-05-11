@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   flickr: {
     key: '495787a139351c3f8fca1ecc3ac8e008',
   },

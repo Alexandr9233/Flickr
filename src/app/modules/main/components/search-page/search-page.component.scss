@@ -1,3 +1,5 @@
+@import "../../../../../shared/styles/shared.styles.scss";
+
 :host ::ng-deep {
     .mat-form-field {
         width: 500px;
@@ -5,6 +7,23 @@
 
     .mat-input-element {
         height: 24px;
+    }
+
+    .search-paginator {
+        margin: 0px 0px 0px auto;
+        width: 340px;
+    }
+
+    .mat-paginator-range-label {
+        margin: 0px;
+    }
+
+    .mat-form-field {
+        width: 48px;
+    }
+
+    .example-full-width {
+        width: 300px;
     }
 }
 
@@ -14,32 +33,22 @@
 }
 
 .cards-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    @include cardsWrap;
 }
 
 .card {
-    max-width: 200px;
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    margin-bottom: 20px;
+    @include card;
 }
 
 .link-to-photo {
     width: auto;
-    height: 100%;
+    max-height: 100%;
 }
 
 .img-item {
-    width: 100%;
-    height: 100%;
+    @include imgSize;
 }
 
 .title {
-    margin: 8px 0px 8px 0px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    @include cardTitile;
 }
